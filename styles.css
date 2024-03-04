@@ -1,0 +1,16 @@
+body
+{
+    background-color: #343a40;
+}
+
+a
+{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #FDB813;
+    font-size: 140%;
+}
