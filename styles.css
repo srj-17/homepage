@@ -14,3 +14,13 @@ a:hover
     color: #FDB813;
     font-size: 140%;
 }
+
+#want_this_white
+{
+    color: white;
+}
+
+a#dont_want_hover
+{
+  font-size: 100%;  
+}
