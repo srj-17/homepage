@@ -39,31 +39,6 @@ header {
     padding: 30px 60px;
 }
 
-/* use flex for pcs */
-@media (min-width: 1200px) {
-    .about-me {
-        display: flex;
-        gap: 20px;
-    }
-    .about-me .content {
-        display: flex;
-        flex-direction: column;
-    }
-    .about-me .content .description {
-        flex: 1;
-    }
-    .about-me .photo {
-        padding-left: 40px;
-    }
-    .photo {
-        transform-origin: right;
-        transform: scale(1.4);
-    }
-}
-
-@media (min-width: 700px) {
-}
-
 .about-me .photo {
     /* should change with breakpoint for responsiveness */
     position: relative;
@@ -103,6 +78,38 @@ header {
     flex-direction: row;
     justify-content: end;
     gap: 8px;
+}
+
+/* use flex for pcs */
+@media (min-width: 1200px) {
+    .about-me {
+        display: flex;
+        gap: 20px;
+    }
+    .about-me .content {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me .content .description {
+        flex: 1;
+    }
+    .about-me .photo {
+        padding-left: 40px;
+    }
+    .photo {
+        transform-origin: right;
+        transform: scale(1.4);
+    }
+}
+
+@media (min-width: 700px) {
+    .about-me .photo {
+        display: inline-block;
+        font-size: 0;
+    }
+    .about-me .content {
+        display: inline-block;
+    }
 }
 
 /*main content*/
