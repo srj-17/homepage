@@ -3,3 +3,35 @@
     margin: 0;
     box-sizing: border-box;
 }
+/* family=Oranienbaum&family=Roboto */
+
+:root {
+    --text: white;
+}
+
+svg {
+    height: 20px;
+    width: 20px;
+}
+
+.about-me .photo {
+    /* should change with breakpoint for responsiveness */
+    width: 350px;
+    height: 350px;
+    background-image: url(img/person.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.about-me .name {
+    color: var(--text);
+    text-align: center;
+    font-size: 3.5em;
+}
+
+img {
+    max-width: 400px;
+}
