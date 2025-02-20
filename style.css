@@ -6,32 +6,108 @@
 /* family=Oranienbaum&family=Roboto */
 
 :root {
-    --text: white;
+    --text: black;
+    --bg: white;
+    --primary: lightblue;
 }
 
-svg {
-    height: 20px;
-    width: 20px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+.diagonal-box {
+    position: absolute;
+    isolation: isolate;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary);
+    transform: translateY(-40vh) skewY(-18deg);
+    z-index: -1;
+}
+
+header {
+    padding: 40px 0;
+}
+
+.about-me {
+    background: var(--bg);
+    box-shadow: 4px 4px 8px grey;
+
+    padding: 30px 60px;
+}
+
+/* use flex for pcs */
+@media (min-width: 1200px) {
+    .about-me {
+        display: flex;
+        gap: 20px;
+    }
+    .about-me .content {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me .content .description {
+        flex: 1;
+    }
+    .about-me .photo {
+        padding-left: 40px;
+    }
+    .photo {
+        transform-origin: right;
+        transform: scale(1.4);
+    }
+}
+
+@media (min-width: 700px) {
 }
 
 .about-me .photo {
     /* should change with breakpoint for responsiveness */
-    width: 350px;
-    height: 350px;
-    background-image: url(img/person.jpg);
-    background-position: center;
-    background-size: cover;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
+    justify-content: center;
+}
+
+.about-me img {
+    max-width: 300px;
+    object-fit: cover;
 }
 
 .about-me .name {
-    color: var(--text);
+    position: absolute;
+    bottom: 0px;
+    color: var(--bg);
     text-align: center;
-    font-size: 3.5em;
+    font-size: 3em;
 }
 
-img {
-    max-width: 400px;
+.about-me .title {
+    font-family: "Oranienbaum", serif;
+    font-size: 3rem;
+    padding: 10px 0;
+}
+
+.about-me .description {
+    font-family: "Roboto", serif;
+    color: hsl(from var(--text) h s 40);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 8px;
+}
+
+/*main content*/
+
+svg {
+    height: 30px;
+    width: 30px;
 }
