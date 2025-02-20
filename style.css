@@ -8,7 +8,7 @@
 :root {
     --text: black;
     --bg: white;
-    --primary: lightblue;
+    --primary: #0891b2;
 }
 
 .container {
@@ -80,6 +80,28 @@ header {
     gap: 8px;
 }
 
+/* for tablets */
+@media (min-width: 700px) and (max-width: 1199px) {
+    .about-me .photo {
+        float: left;
+        transform-origin: bottom right;
+        transform: translateX(-11%) scale(1.28);
+    }
+
+    .about-me .content {
+        display: inline;
+    }
+
+    .photo .name {
+        top: 0;
+        transform: translate(90%, -2%);
+    }
+
+    .about-me .social-links {
+        visibility: hidden;
+    }
+}
+
 /* use flex for pcs */
 @media (min-width: 1200px) {
     .about-me {
@@ -99,16 +121,6 @@ header {
     .photo {
         transform-origin: right;
         transform: scale(1.4);
-    }
-}
-
-@media (min-width: 700px) {
-    .about-me .photo {
-        display: inline-block;
-        font-size: 0;
-    }
-    .about-me .content {
-        display: inline-block;
     }
 }
 
