@@ -13,13 +13,13 @@
     --shadow: 2px 2px 10px grey;
     --sans-serif-font: "Roboto", serif;
     --serif-font: "Oranienbaum", serif;
+    --std-padding: 40px 80px;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 40px 80px;
 }
 
 .diagonal-box {
@@ -36,7 +36,7 @@
 }
 
 header {
-    padding: 40px 0;
+    padding: 80px 80px;
 }
 
 .about-me {
@@ -87,81 +87,11 @@ header {
     gap: 8px;
 }
 
-/* mobile */
-@media (max-width: 699px) {
-    .diagonal-box {
-        --diag-box-skew: 28deg;
-    }
-
-    .container {
-        padding: 40px 40px;
-    }
-
-    .about-me {
-        background: none;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .about-me img {
-        height: 500px;
-    }
-}
-
-/* for tablets */
-@media (min-width: 700px) and (max-width: 1050px) {
-    .diagonal-box {
-        --diag-box-skew: 18deg;
-        --diag-box-translate: 70vh;
-    }
-
-    .about-me .photo {
-        float: left;
-        transform-origin: bottom right;
-        transform: translateX(-11%) scale(1.2);
-    }
-
-    .about-me .content {
-        display: inline;
-    }
-
-    .photo .name {
-        top: 0;
-        transform: translate(90%, -2%);
-    }
-
-    .about-me .social-links {
-        visibility: hidden;
-    }
-}
-
-/* use flex for pcs */
-@media (min-width: 1051px) {
-    .about-me {
-        display: flex;
-        gap: 20px;
-    }
-    .about-me .content {
-        display: flex;
-        flex-direction: column;
-    }
-    .about-me .content .description {
-        flex: 1;
-    }
-    .about-me .photo {
-        padding-left: 40px;
-    }
-    .photo {
-        transform-origin: right;
-        transform: scale(1.4);
-    }
-}
-
 /*main content*/
+main {
+    padding: var(--std-padding);
+}
+
 .works .title {
     font-family: var(--serif-font);
     font-size: 3rem;
@@ -238,11 +168,178 @@ header {
     line-height: 1.5;
 }
 
+/* footer */
+footer {
+    --text: white;
+    background: var(--primary);
+    color: var(--text);
+    padding: var(--std-padding);
+}
+
+.contact {
+    display: flex;
+    gap: 20px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--sans-serif-font);
+    font-weight: 400;
+    gap: 20px;
+}
+
+.contact .title {
+    font-size: 3rem;
+    font-family: var(--serif-font);
+}
+
+.contact img {
+    max-width: 600px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact .social-links {
+    display: flex;
+    justify-content: start;
+}
+
+.phone svg,
+.mail svg {
+    fill: white;
+}
+
+.phone-icon,
+.mail-icon {
+    line-height: 0;
+}
+
+.phone,
+.mail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 svg {
     height: 30px;
     width: 30px;
 }
 
-img {
-    max-width: 200px;
+/* for mobile */
+@media (max-width: 699px) {
+    .diagonal-box {
+        --diag-box-skew: 28deg;
+    }
+
+    .container {
+        --std-padding: 40px 40px;
+    }
+
+    header {
+        padding: 80px 40px;
+    }
+
+    .about-me {
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .about-me img {
+        height: 500px;
+    }
+
+    footer {
+        padding: 0;
+    }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact .content {
+        padding: var(--std-padding);
+    }
+
+    .contact img {
+        max-width: 100%;
+        height: 500px;
+        /* to remove that gap at the bottom */
+        display: grid;
+    }
+
+    .contact-info svg {
+        display: none;
+    }
+
+    .phone,
+    .mail {
+        gap: 0;
+    }
+}
+
+/* for tablets */
+@media (min-width: 700px) and (max-width: 1050px) {
+    .diagonal-box {
+        --diag-box-skew: 18deg;
+        --diag-box-translate: 70vh;
+    }
+
+    .about-me .photo {
+        float: left;
+        transform-origin: bottom right;
+        transform: translateX(-11%) scale(1.2);
+    }
+
+    .about-me .content {
+        display: inline;
+    }
+
+    .photo .name {
+        top: 0;
+        transform: translate(90%, -2%);
+    }
+
+    .about-me .social-links {
+        visibility: hidden;
+    }
+
+    .contact img {
+        max-width: 250px;
+    }
+}
+
+/* use flex for pcs */
+@media (min-width: 1051px) {
+    .about-me {
+        display: flex;
+        gap: 20px;
+    }
+    .about-me .content {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me .content .description {
+        flex: 1;
+    }
+    .about-me .photo {
+        padding-left: 40px;
+    }
+    .photo {
+        transform-origin: right;
+        transform: scale(1.4);
+    }
 }
