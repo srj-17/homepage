@@ -7,14 +7,18 @@
 
 :root {
     --text: black;
+    --description-text: hsl(from var(--text) h s 40);
     --bg: white;
     --primary: #0891b2;
+    --shadow: 2px 2px 10px grey;
+    --sans-serif-font: "Roboto", serif;
+    --serif-font: "Oranienbaum", serif;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 40px;
     padding: 40px 80px;
 }
 
@@ -37,7 +41,7 @@ header {
 
 .about-me {
     background: var(--bg);
-    box-shadow: 4px 4px 8px grey;
+    box-shadow: var(--shadow);
 
     padding: 30px 60px;
 }
@@ -63,14 +67,14 @@ header {
 }
 
 .about-me .title {
-    font-family: "Oranienbaum", serif;
+    font-family: var(--serif-font);
     font-size: 3rem;
     padding: 10px 0;
 }
 
 .about-me .description {
-    font-family: "Roboto", serif;
-    color: hsl(from var(--text) h s 40);
+    font-family: var(--sans-serif-font);
+    color: var(--description-text);
     font-size: 1.2rem;
     line-height: 1.7;
     flex: 1;
@@ -90,7 +94,7 @@ header {
     }
 
     .container {
-        padding: 40 40;
+        padding: 40px 40px;
     }
 
     .about-me {
@@ -103,7 +107,7 @@ header {
         justify-content: center;
     }
 
-    img {
+    .about-me img {
         height: 500px;
     }
 }
@@ -158,6 +162,81 @@ header {
 }
 
 /*main content*/
+.works .title {
+    font-family: var(--serif-font);
+    font-size: 3rem;
+    padding: 10px 0;
+}
+
+.works .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 40px;
+}
+
+.works .project {
+    box-shadow: var(--shadow);
+}
+
+/* this changes later when I put the actual image and details of project */
+.project .project-img {
+    font-size: 3rem;
+    text-align: center;
+    padding: 80px 40px;
+    min-height: 200px;
+    color: white;
+}
+
+.project-img.proj-one {
+    background: #9e1c1c;
+}
+
+.project-img.proj-two {
+    background: #7c75ca;
+}
+
+.project-img.proj-three {
+    background: #5e8f4d;
+}
+
+.project-img.proj-four {
+    background: #c363b4;
+}
+
+.project-img.proj-five {
+    background: #d88f39;
+}
+
+.project-img.proj-six {
+    background: #4ba2d2;
+}
+
+.project .project-desc-container {
+    display: grid;
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.project-desc-container .project-title {
+    display: flex;
+}
+
+.project-title .project-name {
+    flex: 1;
+    font-size: 2rem;
+    font-family: var(--serif-font);
+}
+
+.project-title .links {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-desc-container .desc {
+    color: var(--description-text);
+    font-family: var(--sans-serif-font);
+    line-height: 1.5;
+}
 
 svg {
     height: 30px;
