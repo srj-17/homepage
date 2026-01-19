@@ -61,8 +61,9 @@ header {
 .about-me .name {
     position: absolute;
     bottom: 0px;
-    color: var(--bg);
+    color: #000;
     text-align: center;
+    text-shadow: 2px 2px 4px white;
     font-size: 3em;
 }
 
