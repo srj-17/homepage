@@ -109,36 +109,19 @@ main {
     box-shadow: var(--shadow);
 }
 
-/* this changes later when I put the actual image and details of project */
 .project .project-img {
-    font-size: 3rem;
-    text-align: center;
-    padding: 80px 40px;
-    color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
 }
 
-.project-img.proj-one {
-    background: #9e1c1c;
-}
-
-.project-img.proj-two {
-    background: #7c75ca;
-}
-
-.project-img.proj-three {
-    background: #5e8f4d;
-}
-
-.project-img.proj-four {
-    background: #c363b4;
-}
-
-.project-img.proj-five {
-    background: #d88f39;
-}
-
-.project-img.proj-six {
-    background: #4ba2d2;
+.project .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .project .project-desc-container {
