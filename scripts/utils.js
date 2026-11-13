@@ -4,6 +4,55 @@ export function createClassedDiv(className) {
     return div
 }
 
+const socialLinkLabels = {
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    twitter: "Twitter"
+}
+
+function setText(selector, text) {
+    const element = document.querySelector(selector)
+    if (element) {
+        element.textContent = text
+    }
+}
+
+function renderSocialLinks(socialLinks) {
+    const template = document.querySelector("#social-link-template")
+    if (!template) return
+
+    document.querySelectorAll("[data-social-links]").forEach(container => {
+        container.replaceChildren()
+
+        Object.entries(socialLinks).forEach(([name, href]) => {
+            const source = template.content.querySelector(`[data-social="${name}"]`)
+            if (!source) return
+
+            const link = source.cloneNode(true)
+            link.href = href
+            link.setAttribute("aria-label", socialLinkLabels[name] ?? name)
+            container.appendChild(link)
+        })
+    })
+}
+
+export function renderPersonalInfo(info) {
+    const photo = document.querySelector(".about-me .photo img")
+    if (photo) {
+        photo.src = info.photo
+        photo.alt = info.name
+    }
+
+    setText(".about-me .name", info.name)
+    setText(".about-me .description", info.description)
+    setText(".contact .description", info.contact.message)
+    setText(".contact .general-addr", info.contact.address)
+    setText(".contact .phone-no", info.contact.phone)
+    setText(".contact .mail-address", info.contact.mail)
+
+    renderSocialLinks(info.socialLinks)
+}
+
 export function createProject(proj) {
     const project = createClassedDiv("project")
 
@@ -12,6 +61,7 @@ export function createProject(proj) {
     const projectImage = document.createElement("img");
     projectImage.src = proj.img.src
     projectImage.alt = proj.img.alt
+    projectImage.loading = "lazy"
     projectImageContainer.appendChild(projectImage)
     project.appendChild(projectImageContainer)
 
@@ -28,6 +78,8 @@ export function createProject(proj) {
 
     const githubLink = document.createElement("a")
     githubLink.href = proj.links.github
+    githubLink.setAttribute("aria-label", `${proj.title} on GitHub`)
+    githubLink.title = "View source on GitHub"
     githubLink.innerHTML = `
                     <div class="github-icon">
                         <svg viewBox="0 0 128 128">
@@ -44,10 +96,12 @@ export function createProject(proj) {
                         </svg>
                     </div>
 `
-    links.appendChild(githubLink)
+    if (proj.links.github) links.appendChild(githubLink)
 
     const liveLink = document.createElement("a")
     liveLink.href = proj.links.live
+    liveLink.setAttribute("aria-label", `Open live ${proj.title}`)
+    liveLink.title = "Open live site"
     liveLink.innerHTML = `
                     <div class="open-live-view-icon">
                         <svg
@@ -61,7 +115,7 @@ export function createProject(proj) {
                         </svg>
                     </div>
 `
-    links.appendChild(liveLink)
+    if (proj.links.live) links.appendChild(liveLink)
 
     projectTitle.appendChild(links)
     projectDescriptionContainer.append(projectTitle)
